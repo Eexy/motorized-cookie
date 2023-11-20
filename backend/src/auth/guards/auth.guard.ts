@@ -1,17 +1,19 @@
 import {
   CanActivate,
   ExecutionContext,
+  Injectable,
   UnauthorizedException,
 } from '@nestjs/common';
-import { JwtService } from '../../jwt/jwt.service';
 import { Request } from 'express';
 import { JwtPayload } from 'jsonwebtoken';
 import { ClientsService } from '../../clients/clients.service';
 import { z } from 'zod';
+import { JwtService } from '../../jwt/jwt.service';
 
+@Injectable()
 export class AuthGuard implements CanActivate {
   constructor(
-    private readonly jwtService: JwtService,
+    private jwtService: JwtService,
     private readonly clientService: ClientsService,
   ) {}
 
@@ -48,7 +50,7 @@ export class AuthGuard implements CanActivate {
       throw new UnauthorizedException('User not connected');
     }
 
-    request['user'] = client;
+    request['client'] = client;
 
     return true;
   }
