@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "alwaysStrict": true,
+    "strict": true,
     "module": "commonjs",
     "declaration": true,
     "removeComments": true,
@@ -12,10 +14,15 @@
     "baseUrl": "./",
     "incremental": true,
     "skipLibCheck": true,
-    "strictNullChecks": false,
-    "noImplicitAny": false,
+    "strictNullChecks": true,
+    "noImplicitAny": true,
+    "noImplicitOverride": true,
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "useUnknownInCatchVariables": true
   }
 }
