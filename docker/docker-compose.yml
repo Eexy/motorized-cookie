@@ -1,4 +1,14 @@
+name: motorized-cookie
+
 services:
+  backend:
+    build: ../backend
+    command: ["npm", "start"]
+    ports:
+      - 3000:3000
+    depends_on:
+      - postgres
+
   postgres:
     image: "postgres"
     restart: "always"
