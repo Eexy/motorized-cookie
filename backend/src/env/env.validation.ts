@@ -1,11 +1,12 @@
-import {envSchema} from "./env.schema";
+import { envSchema } from './env.schema';
 
-export function validate(config: Record<string, unknown>){
-    const res = envSchema.safeParse(config)
+export function validate(config: Record<string, unknown>) {
+  const res = envSchema.safeParse(config);
 
-    if(!res.success){
-        throw new Error(res.error.errors.toString())
-    }
+  if (!res.success) {
+    console.info(res.error.errors);
+    throw new Error(res.error.errors.toString());
+  }
 
-    return res.data
+  return res.data;
 }

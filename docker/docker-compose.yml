@@ -3,9 +3,11 @@ name: motorized-cookie
 services:
   backend:
     build: ../backend
-    command: ["npm", "start"]
+    command: [ "npm", "start" ]
     ports:
       - 3000:3000
+    env_file:
+      - ../backend/.env
     depends_on:
       - postgres
 
