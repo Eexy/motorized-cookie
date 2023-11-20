@@ -13,13 +13,15 @@ export class AuthController {
     @Body(new ZodValidationPipe(signupDtoSchema))
     signupDto: SignupDto,
   ) {
-    return await this.authService.signup(signupDto);
+    const token = await this.authService.signup(signupDto);
+    return { token };
   }
 
   @Post('signin')
   async signin(
     @Body(new ZodValidationPipe(signinDtoSchema)) signinDto: SigninDto,
   ) {
-    return await this.authService.signin(signinDto);
+    const token = await this.authService.signin(signinDto);
+    return { token };
   }
 }
