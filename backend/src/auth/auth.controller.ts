@@ -1,10 +1,7 @@
 import { Body, Controller, Post } from '@nestjs/common';
-import {
-  CreateClientDto,
-  createClientDtoSchema,
-} from '../clients/dto/create-client.dto';
 import { AuthService } from './auth.service';
 import { ZodValidationPipe } from '../common/pipes/zod-validation.pipe';
+import { SignupDto, signupDtoSchema } from './dto/signupDto';
 
 @Controller('auth')
 export class AuthController {
@@ -12,8 +9,8 @@ export class AuthController {
 
   @Post('signup')
   async signup(
-    @Body(new ZodValidationPipe(createClientDtoSchema))
-    createClientDto: CreateClientDto,
+    @Body(new ZodValidationPipe(signupDtoSchema))
+    createClientDto: SignupDto,
   ) {
     return await this.authService.signup(createClientDto);
   }
