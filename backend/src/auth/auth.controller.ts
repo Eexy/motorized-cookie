@@ -10,8 +10,8 @@ export class AuthController {
   @Post('signup')
   async signup(
     @Body(new ZodValidationPipe(signupDtoSchema))
-    createClientDto: SignupDto,
+    signupDto: SignupDto,
   ) {
-    return await this.authService.signup(createClientDto);
+    return await this.authService.signup(signupDto);
   }
 }
