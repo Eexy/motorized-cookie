@@ -23,4 +23,16 @@ export class ClientsService {
 
     return res[0];
   }
+
+  async getClientById(id: number) {
+    const res = await this.db
+      .select()
+      .from(clients)
+      .where(eq(clients.id, id))
+      .limit(1);
+
+    if (!res.length) return null;
+
+    return res[0];
+  }
 }

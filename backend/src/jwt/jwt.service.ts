@@ -10,4 +10,9 @@ export class JwtService {
     const tokenSecret = this.configService.get<string>('JWT_SECRET');
     return jwt.sign(payload, tokenSecret ?? '', { expiresIn: '15m' });
   }
+
+  decodeJwt(token: string) {
+    const tokenSecret = this.configService.get<string>('JWT_SECRET');
+    return jwt.verify(token, tokenSecret ?? '');
+  }
 }
