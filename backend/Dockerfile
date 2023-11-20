@@ -3,3 +3,4 @@ WORKDIR /app
 COPY . .
 RUN npm ci
 ENV DB_URL=${DB_URL}
+ENV PORT=${PORT}
