@@ -15,13 +15,6 @@ export class AuthController {
     @Body(new ZodValidationPipe(createClientDtoSchema))
     createClientDto: CreateClientDto,
   ) {
-    console.log(createClientDto);
-    return await this.authService.signup({
-      email: 'test',
-      firstName: 'firstname',
-      lastName: 'lastname',
-      gender: 'M',
-      password: 'password',
-    });
+    return await this.authService.signup(createClientDto);
   }
 }
