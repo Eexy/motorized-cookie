@@ -4,7 +4,7 @@ import {provideRouter} from '@angular/router';
 import {routes} from './app.routes';
 import {HttpClient, provideHttpClient} from "@angular/common/http";
 import {provideNgIconsConfig} from "@ng-icons/core";
-import {NavService} from "./components/app-header/components/app-nav/nav.service";
+import {NavService} from "./nav/services/nav.service";
 import {environment} from "../environments/environment";
 import {Category} from "./components/app-header/components/app-nav/category";
 import {tap} from "rxjs";

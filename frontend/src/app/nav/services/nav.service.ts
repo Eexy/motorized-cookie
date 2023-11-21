@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Category} from "./category";
+import {Category} from "../../components/app-header/components/app-nav/category";
 
 @Injectable({
   providedIn: 'root'

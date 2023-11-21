@@ -1,20 +1,19 @@
 import {Component} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {NavService} from "./nav.service";
-import {Category} from "./category";
+import {NavService} from "../../services/nav.service";
+import {Category} from "../../../components/app-header/components/app-nav/category";
 
 @Component({
-  selector: 'app-nav',
+  selector: 'nav-bar',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './app-nav.component.html',
+  templateUrl: './nav-bar.component.html',
 })
-export class AppNavComponent {
+export class NavBarComponent {
   categories: Category[] = []
 
   constructor(private navService: NavService) {
     this.categories = this.navService.categories
-    console.info(this.categories)
   }
 
 }
