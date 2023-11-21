@@ -1,4 +1,11 @@
-import { Controller, Get, Query } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  NotFoundException,
+  Param,
+  ParseIntPipe,
+  Query,
+} from '@nestjs/common';
 import { CategoryService } from './category.service';
 import { ZodValidationPipe } from '../common/pipes/zod-validation.pipe';
 import {
@@ -16,5 +23,16 @@ export class CategoryController {
     query: CategoryQueryDto,
   ) {
     return await this.categoryService.findAll(query);
+  }
+
+  @Get(':id')
+  async findById(@Param('id', ParseIntPipe) id: number) {
+    const category = await this.categoryService.findById(id);
+
+    if (!category) {
+      throw new NotFoundException(`Unable to find category with id ${id}`);
+    }
+
+    return category;
   }
 }
