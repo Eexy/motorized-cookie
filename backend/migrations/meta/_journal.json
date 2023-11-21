@@ -8,6 +8,13 @@
       "when": 1700501951950,
       "tag": "0000_mixed_richard_fisk",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "5",
+      "when": 1700596797261,
+      "tag": "0001_elite_argent",
+      "breakpoints": true
     }
   ]
 }
