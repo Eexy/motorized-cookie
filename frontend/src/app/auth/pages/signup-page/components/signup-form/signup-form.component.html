@@ -1,0 +1,37 @@
+<div class="flex flex-col gap-2 items-stretch flex-1">
+  <div class="">
+    <form (ngSubmit)="onSubmit()" [formGroup]="signupForm" class="flex flex-col gap-3">
+      <div class="flex gap-3 font-bold capitalize">
+        <div class="flex gap-2 items-center ">
+          <label for="male">Male</label>
+          <input formControlName="gender" id="male" name="gender" type="radio" value="M"/>
+        </div>
+        <div class="flex gap-2 items-center">
+          <label for="female">female</label>
+          <input formControlName="gender" id="female" name="gender" type="radio" value="F"/>
+        </div>
+      </div>
+      <p class="flex flex-col">
+        <input class="border border-gray-300 py-2 px-3 outline-blue-300 rounded" formControlName="firstname" id="firstname"
+               placeholder="Firstname"
+               required type="text"/>
+      </p>
+      <p class="flex flex-col">
+        <input class="outline-blue-300 border border-gray-300 py-2 px-3 rounded" formControlName="lastname" id="lastname"
+               placeholder="Lastname"
+               required type="text"/>
+      </p>
+      <p class="flex flex-col">
+        <input class="outline-blue-300 border border-gray-300 py-2 px-3 rounded" formControlName="email" id="email" placeholder="Email"
+               required type="email"/>
+      </p>
+      <p class="flex flex-col">
+        <input class="outline-blue-300 border border-gray-300 py-2 px-3 rounded" formControlName="password"
+               id="password" placeholder="password" required type="password"/>
+      </p>
+      <p class="flex flex-col">
+        <button class="bg-yellow-400 text-black p-2">Sign up</button>
+      </p>
+    </form>
+  </div>
+</div>
