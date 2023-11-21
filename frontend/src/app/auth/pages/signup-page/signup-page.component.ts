@@ -1,11 +1,12 @@
 import {Component} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {SignupFormComponent} from "./components/signup-form/signup-form.component";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'signup-page',
   standalone: true,
-  imports: [CommonModule, SignupFormComponent],
+  imports: [CommonModule, SignupFormComponent, RouterLink],
   templateUrl: './signup-page.component.html',
 })
 export class SignupPageComponent {

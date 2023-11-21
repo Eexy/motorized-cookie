@@ -1,18 +1,16 @@
 <div class="flex flex-col gap-2 items-stretch flex-1">
-  <div class="">
-    <form (ngSubmit)="onSubmit()" [formGroup]="signinForm" class="flex flex-col gap-3">
-      <p class="flex flex-col">
-        <input class="outline-blue-300 border border-gray-300 py-2 px-3 rounded" formControlName="email" id="email"
-               placeholder="Email"
-               required type="email"/>
-      </p>
-      <p class="flex flex-col">
-        <input class="outline-blue-300 border border-gray-300 py-2 px-3 rounded" formControlName="password"
-               id="password" placeholder="password" required type="password"/>
-      </p>
-      <p class="flex flex-col">
-        <button class="bg-yellow-400 text-black p-2">Sign in</button>
-      </p>
-    </form>
-  </div>
+  <form (ngSubmit)="onSubmit()" [formGroup]="signinForm" class="flex flex-col gap-3">
+    <p class="flex flex-col">
+      <input class="outline-blue-300 border border-gray-300 py-2 px-3 rounded" formControlName="email" id="email"
+             placeholder="Email"
+             required type="email"/>
+    </p>
+    <p class="flex flex-col">
+      <input class="outline-blue-300 border border-gray-300 py-2 px-3 rounded" formControlName="password"
+             id="password" placeholder="password" required type="password"/>
+    </p>
+    <p class="flex flex-col">
+      <button class="bg-yellow-400 text-black p-2">Sign in</button>
+    </p>
+  </form>
 </div>
