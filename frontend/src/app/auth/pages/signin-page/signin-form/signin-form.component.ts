@@ -2,6 +2,8 @@ import {Component} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormBuilder, ReactiveFormsModule, Validators} from "@angular/forms";
 import {RouterLink} from "@angular/router";
+import {AuthService} from "../../../services/auth-service.service";
+import {SigninDto} from "../../../dto/signin.dto";
 
 @Component({
   selector: 'signin-form',
@@ -15,11 +17,13 @@ export class SigninFormComponent {
     password: ["", [Validators.required]],
   })
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private authService: AuthService) {
   }
 
   onSubmit() {
-    console.log(this.signinForm.getRawValue())
+    if (this.signinForm.status === "VALID") {
+      this.authService.signin(this.signinForm.value as SigninDto)
+    }
   }
 
 }

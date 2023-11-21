@@ -2,6 +2,8 @@ import {Component} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormBuilder, ReactiveFormsModule, Validators} from "@angular/forms";
 import {RouterLink} from "@angular/router";
+import {AuthService} from "../../../../services/auth-service.service";
+import {SignupDto} from "../../../../dto/signup.dto";
 
 @Component({
   selector: 'signup-form',
@@ -10,19 +12,21 @@ import {RouterLink} from "@angular/router";
   templateUrl: './signup-form.component.html',
 })
 export class SignupFormComponent {
-  signupForm = this.fb.group({
-    firstname: ["", [Validators.required, Validators.minLength(3)]],
+  signupForm = this.fb.nonNullable.group({
+    firstName: ["", [Validators.required, Validators.minLength(3)]],
     email: ["", [Validators.required, Validators.email]],
     password: ["", [Validators.required, Validators.minLength(5)]],
-    lastname: ["", Validators.required],
+    lastName: ["", Validators.required],
     gender: ["", Validators.required]
   })
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private authService: AuthService) {
   }
 
   onSubmit() {
-    console.log(this.signupForm.getRawValue())
+    if (this.signupForm.status === "VALID") {
+      this.authService.signup(this.signupForm.value as SignupDto)
+    }
   }
 
 }

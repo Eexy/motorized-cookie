@@ -10,5 +10,4 @@ import {RouterLink} from "@angular/router";
   templateUrl: './signup-page.component.html',
 })
 export class SignupPageComponent {
-
 }
