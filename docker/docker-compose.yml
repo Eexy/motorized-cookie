@@ -1,6 +1,13 @@
 name: motorized-cookie
 
 services:
+  frontend:
+    build: ../frontend
+    ports:
+      - 4200:4200
+    depends_on:
+      - backend
+
   backend:
     build: ../backend
     command: [ "npm", "start" ]
