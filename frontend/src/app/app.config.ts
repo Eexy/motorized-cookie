@@ -7,18 +7,19 @@ import {provideNgIconsConfig} from "@ng-icons/core";
 import {NavService} from "./components/app-header/components/app-nav/nav.service";
 import {environment} from "../environments/environment";
 import {Category} from "./components/app-header/components/app-nav/category";
+import {tap} from "rxjs";
 
 export function initializeApp(navService: NavService, http: HttpClient) {
-  return async () => {
+  return () => {
     console.log("Init")
     if (!environment.production) {
       return navService.setCategories([{id: 1, name: "Short"}])
     }
 
-    return http.get<Category[]>("http://127.0.0.1/categories").subscribe(res => {
+    return http.get<Category[]>("http://127.0.0.1:3000/categories").pipe(tap(res => {
       console.info("here")
       navService.setCategories(res)
-    })
+    }))
   }
 }
 
