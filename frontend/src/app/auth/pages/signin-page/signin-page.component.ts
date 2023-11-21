@@ -5,7 +5,7 @@ import {SigninFormComponent} from "./signin-form/signin-form.component";
 import {RouterLink} from "@angular/router";
 
 @Component({
-  selector: 'signin-page',
+  selector: 'signin-pages',
   standalone: true,
   imports: [CommonModule, SignupFormComponent, SigninFormComponent, RouterLink],
   templateUrl: './signin-page.component.html',

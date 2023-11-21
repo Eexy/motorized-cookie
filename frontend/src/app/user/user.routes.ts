@@ -1,5 +1,5 @@
 import {Routes} from "@angular/router";
-import {UserPageComponent} from "./page/user-page/user-page.component";
+import {UserPageComponent} from "./pages/user-page/user-page.component";
 import {authGuard} from "../auth/auth.guard";
 
 export const userRoutes: Routes = [

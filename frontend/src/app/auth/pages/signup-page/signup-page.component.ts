@@ -4,7 +4,7 @@ import {SignupFormComponent} from "./components/signup-form/signup-form.componen
 import {RouterLink} from "@angular/router";
 
 @Component({
-  selector: 'signup-page',
+  selector: 'signup-pages',
   standalone: true,
   imports: [CommonModule, SignupFormComponent, RouterLink],
   templateUrl: './signup-page.component.html',
