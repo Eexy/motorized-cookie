@@ -4,6 +4,7 @@ import { FactoryProvider } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { drizzle, PostgresJsDatabase } from 'drizzle-orm/postgres-js';
 import { migrate } from 'drizzle-orm/postgres-js/migrator';
+import { seedDatabase } from './seed';
 
 export const DB = Symbol('DB');
 export type DbType = PostgresJsDatabase<typeof schema>;
@@ -18,9 +19,13 @@ export const databaseProvider: FactoryProvider = {
     });
     const queryClient = postgres(dbUrl ?? '');
 
-    return drizzle(queryClient, {
+    const db = drizzle(queryClient, {
       schema,
     });
+
+    await seedDatabase(db);
+
+    return db;
   },
   inject: [ConfigService],
 };
