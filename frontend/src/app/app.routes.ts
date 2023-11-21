@@ -2,8 +2,9 @@ import {Routes} from '@angular/router';
 import {authRoutes} from "./auth/auth.routes";
 import {userRoutes} from "./user/user.routes";
 import {errorRoutes} from "./error/error.routes";
+import {homeRoutes} from "./home/home.routes";
 
-export const routes: Routes = [
+export const routes: Routes = [...homeRoutes,
   ...authRoutes,
   ...userRoutes,
   ...errorRoutes
