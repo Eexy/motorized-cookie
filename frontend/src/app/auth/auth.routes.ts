@@ -9,5 +9,5 @@ export const authRoutes: Routes = [{
 }, {
   path: "auth/signin",
   component: SigninPageComponent,
-  title: "Signin"
+  title: "Signin",
 }]
