@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormBuilder, ReactiveFormsModule, Validators} from "@angular/forms";
 import {RouterLink} from "@angular/router";
-import {AuthService} from "../../../services/auth-service.service";
+import {AuthService} from "../../../services/auth.service";
 import {SigninDto} from "../../../dto/signin.dto";
 
 @Component({
