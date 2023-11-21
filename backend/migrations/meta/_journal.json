@@ -15,6 +15,13 @@
       "when": 1700596797261,
       "tag": "0001_elite_argent",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1700597916575,
+      "tag": "0002_marvelous_cloak",
+      "breakpoints": true
     }
   ]
 }
