@@ -19,6 +19,7 @@ export class AuthService {
     }
 
     return this.http.post<{ token: string }>('http://127.0.0.1:3000/auth/signup', signupDto).subscribe(res => {
+      localStorage.setItem("token", res.token)
       this.router.navigate([""])
     })
   }
