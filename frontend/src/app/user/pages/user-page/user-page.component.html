@@ -1,11 +1,13 @@
-<div class="flex justify-center">
-  <div>
-    <ul class="flex flex-col border border-gray-300">
-      <li class="p-2"><a>Information</a></li>
-      <li class="p-2"><a>Invoices</a></li>
-    </ul>
-  </div>
-  <div>
-    <router-outlet></router-outlet>
+<div class="p-3 md:flex md:justify-center">
+  <div class="md:w-1/2 p-3 md:flex">
+    <div>
+      <ul class="grid grid-cols-2 md:grid-cols-1 border border-gray-300">
+        <li class="px-4 py-2 "><a class="w-full" routerLink="me">Information</a></li>
+        <li class="px-4 py-2"><a class="w-full" routerLink="invoices">Invoices</a></li>
+      </ul>
+    </div>
+    <div>
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>
