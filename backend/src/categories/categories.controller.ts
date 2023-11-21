@@ -6,16 +6,16 @@ import {
   ParseIntPipe,
   Query,
 } from '@nestjs/common';
-import { CategoryService } from './category.service';
+import { CategoriesService } from './categories.service';
 import { ZodValidationPipe } from '../common/pipes/zod-validation.pipe';
 import {
   CategoryQueryDto,
   categoryQueryDtoSchema,
 } from './dto/category-query.dto';
 
-@Controller('category')
-export class CategoryController {
-  constructor(private readonly categoryService: CategoryService) {}
+@Controller('categories')
+export class CategoriesController {
+  constructor(private readonly categoryService: CategoriesService) {}
 
   @Get()
   async findAll(

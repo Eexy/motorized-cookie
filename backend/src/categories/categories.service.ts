@@ -5,7 +5,7 @@ import { categories } from '../database/schema';
 import { eq } from 'drizzle-orm';
 
 @Injectable()
-export class CategoryService {
+export class CategoriesService {
   constructor(@Inject(DB) private readonly db: DbType) {}
 
   async findAll(query: CategoryQueryDto) {

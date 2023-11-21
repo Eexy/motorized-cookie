@@ -7,7 +7,7 @@ import { DatabaseModule } from './database/database.module';
 import { ClientsModule } from './clients/clients.module';
 import { AuthModule } from './auth/auth.module';
 import { JwtModule } from './jwt/jwt.module';
-import { CategoryModule } from './category/category.module';
+import { CategoriesModule } from './categories/categories.module';
 
 @Module({
   imports: [
@@ -19,7 +19,7 @@ import { CategoryModule } from './category/category.module';
     JwtModule,
     ClientsModule,
     AuthModule,
-    CategoryModule,
+    CategoriesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
