@@ -2,6 +2,7 @@ import {
   integer,
   pgEnum,
   pgTable,
+  real,
   serial,
   text,
   timestamp,
@@ -29,7 +30,7 @@ export const products = pgTable('products', {
   id: serial('id').primaryKey(),
   name: varchar('name', { length: 256 }).notNull(),
   description: text('description'),
-  price: text('price'),
+  price: real('price'),
   categoryId: integer('categoryId')
     .notNull()
     .references(() => categories.id),
