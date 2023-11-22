@@ -1,5 +1,6 @@
 <div class="hidden md:block">
   <ul class="flex justify-center text-lg font-semibold">
-    <li *ngFor="let category of categories" class="p-3 capitalize">{{category.name}}</li>
+    <li *ngFor="let category of categories" class="p-3 capitalize"><a
+      routerLink="category/{{category.name}}">{{category.name}}</a></li>
   </ul>
 </div>
