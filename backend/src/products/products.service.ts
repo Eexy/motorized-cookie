@@ -40,7 +40,7 @@ export class ProductsService {
         .offset((query.page - 1) * 25);
     }
 
-    return this.db.query.products.findMany({
+    return await this.db.query.products.findMany({
       offset: (query.page - 1) * 25,
       limit: query.limit,
     });
