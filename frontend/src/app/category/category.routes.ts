@@ -4,9 +4,8 @@ import {CategoryPageComponent} from "./pages/category-page/category-page.compone
 export const categoryRoutes: Routes = [
   {
     matcher: (url) => {
-      console.info(url)
       if (url[0].path === "category") {
-        return {consumed: url, posParams: {category: new UrlSegment(url[0].path.slice(1), {})}}
+        return {consumed: url, posParams: {category: new UrlSegment(url[1].path.slice(1), {})}}
       }
 
       return null;
