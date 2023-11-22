@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {Injectable, signal} from '@angular/core';
 import {Category} from "../../components/app-header/components/app-nav/category";
 
 @Injectable({
@@ -6,6 +6,7 @@ import {Category} from "../../components/app-header/components/app-nav/category"
 })
 export class NavService {
   categories: Category[] = []
+  openNavPanel = signal(false)
 
   constructor() {
   }
