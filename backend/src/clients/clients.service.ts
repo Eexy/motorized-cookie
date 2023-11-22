@@ -15,9 +15,6 @@ export class ClientsService {
   async getClientByEmail(email: string) {
     const client = await this.db.query.clients.findFirst({
       where: eq(clients.email, email),
-      columns: {
-        password: false,
-      },
     });
 
     if (!client) return null;
@@ -28,9 +25,6 @@ export class ClientsService {
   async getClientById(id: number) {
     const client = await this.db.query.clients.findFirst({
       where: eq(clients.id, id),
-      columns: {
-        password: false,
-      },
     });
 
     if (client) return null;
