@@ -13,26 +13,28 @@ export class ClientsService {
   }
 
   async getClientByEmail(email: string) {
-    const res = await this.db
-      .select()
-      .from(clients)
-      .where(eq(clients.email, email))
-      .limit(1);
+    const client = await this.db.query.clients.findFirst({
+      where: eq(clients.email, email),
+      columns: {
+        password: false,
+      },
+    });
 
-    if (!res.length) return null;
+    if (!client) return null;
 
-    return res[0];
+    return client;
   }
 
   async getClientById(id: number) {
-    const res = await this.db
-      .select()
-      .from(clients)
-      .where(eq(clients.id, id))
-      .limit(1);
+    const client = await this.db.query.clients.findFirst({
+      where: eq(clients.id, id),
+      columns: {
+        password: false,
+      },
+    });
 
-    if (!res.length) return null;
+    if (client) return null;
 
-    return res[0];
+    return client;
   }
 }
