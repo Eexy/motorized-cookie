@@ -20,7 +20,8 @@ export class MailService {
     const transporter = nodemailer.createTransport({
       host: parsedHost.data.host,
       port: parsedHost.data.port,
-      secure: true,
+      secure: parsedHost.data.secure,
+      service: parsedHost.data.service,
       auth: {
         user: parsedHost.data.user,
         pass: parsedHost.data.password,
@@ -28,7 +29,7 @@ export class MailService {
     });
 
     await transporter.sendMail({
-      from: 'test',
+      from: parsedHost.data.user,
       to: email,
       subject: object,
       html,
@@ -42,7 +43,9 @@ export class MailService {
     const port = this.configService.get<number>('MAIL_PORT');
     const user = this.configService.get<string>('MAIL_USER');
     const password = this.configService.get<string>('MAIL_PASSWORD');
+    const secure = this.configService.get<boolean>('MAIL_SECURE');
+    const service = this.configService.get<string>('MAIL_SERVICE');
 
-    return { host, port, user, password };
+    return { host, port, user, password, secure, service };
   }
 }
