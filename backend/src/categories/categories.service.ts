@@ -9,11 +9,10 @@ export class CategoriesService {
   constructor(@Inject(DB) private readonly db: DbType) {}
 
   async findAll(query: CategoryQueryDto) {
-    return this.db
-      .select()
-      .from(categories)
-      .limit(query.limit)
-      .offset((query.page - 1) * 25);
+    return await this.db.query.categories.findMany({
+      limit: query.limit,
+      offset: (query.page - 1) * 25,
+    });
   }
 
   async findById(id: number) {
