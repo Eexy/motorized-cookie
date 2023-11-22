@@ -3,7 +3,6 @@ import {HttpClient} from "@angular/common/http";
 import {SignupDto} from "../dto/signup.dto";
 import {SigninDto} from "../dto/signin.dto";
 import {Router} from "@angular/router";
-import {environment} from "../../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -13,11 +12,6 @@ export class AuthService {
   }
 
   async signup(signupDto: SignupDto) {
-    if (!environment.production) {
-      localStorage.setItem("token", "token")
-      return this.router.navigate([""])
-    }
-
     return this.http.post<{ token: string }>('http://127.0.0.1:3000/auth/signup', signupDto).subscribe(res => {
       localStorage.setItem("token", res.token)
       this.router.navigate([""])
@@ -25,10 +19,6 @@ export class AuthService {
   }
 
   async signin(signinDto: SigninDto) {
-    if (!environment.production) {
-      localStorage.setItem("token", "token")
-      return this.router.navigate([""])
-    }
     return this.http.post<{ token: string }>('http://127.0.0.1:3000/auth/signup', signinDto).subscribe(res => {
       localStorage.setItem("token", res.token)
       this.router.navigate([""])
