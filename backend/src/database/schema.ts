@@ -8,6 +8,7 @@ import {
   timestamp,
   varchar,
 } from 'drizzle-orm/pg-core';
+import { relations } from 'drizzle-orm';
 
 export const genderEnum = pgEnum('gender', ['M', 'F']);
 export const clients = pgTable('clients', {
@@ -36,3 +37,15 @@ export const products = pgTable('products', {
     .references(() => categories.id),
   createdAt: timestamp('createdAt').defaultNow(),
 });
+
+export const productRelation = relations(products, ({ one }) => ({
+  category: one(categories, {
+    fields: [products.categoryId],
+    references: [categories.id],
+    relationName: 'categories',
+  }),
+}));
+
+export const categoryRelation = relations(categories, ({ many }) => ({
+  product: many(products),
+}));

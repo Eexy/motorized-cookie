@@ -11,7 +11,7 @@ export class ProductsService {
     return await this.db.query.products.findFirst({
       where: eq(products.id, id),
       with: {
-        categories: true,
+        category: true,
       },
     });
   }
