@@ -25,7 +25,8 @@ export function initializeApp(navService: NavService, http: HttpClient) {
 
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes), provideHttpClient(), provideNgIconsConfig({
-    size: "1.5em"
+    size: "24px",
+
   }), {
     provide: APP_INITIALIZER,
     useFactory: initializeApp,
