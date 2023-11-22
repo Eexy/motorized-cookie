@@ -16,11 +16,13 @@ export const clients = pgTable('clients', {
   lastName: varchar('lastname', { length: 256 }).notNull(),
   password: varchar('password', { length: 256 }).notNull(),
   gender: genderEnum('gender').notNull(),
+  createdAt: timestamp('createAt').defaultNow(),
 });
 
 export const categories = pgTable('categories', {
   id: serial('id').primaryKey(),
   name: varchar('name', { length: 256 }).notNull(),
+  createdAt: timestamp('createAt').defaultNow(),
 });
 
 export const products = pgTable('products', {
