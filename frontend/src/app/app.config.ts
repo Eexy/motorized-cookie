@@ -11,13 +11,11 @@ import {tap} from "rxjs";
 
 export function initializeApp(navService: NavService, http: HttpClient) {
   return () => {
-    console.log("Init")
     if (!environment.production) {
-      return navService.setCategories([{id: 1, name: "Short"}])
+      return navService.setCategories([{id: 1, name: "short"}])
     }
 
     return http.get<Category[]>("http://127.0.0.1:3000/categories").pipe(tap(res => {
-      console.info("here")
       navService.setCategories(res)
     }))
   }
