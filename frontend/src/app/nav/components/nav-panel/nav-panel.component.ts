@@ -21,7 +21,7 @@ export class NavPanelComponent {
     })
   }
 
-  toggleOpen(val: boolean) {
-    this.open = val
+  handleNavItemClick() {
+    this.navService.openNavPanel.set(false)
   }
 }

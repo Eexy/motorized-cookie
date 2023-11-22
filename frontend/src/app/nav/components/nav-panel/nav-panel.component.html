@@ -1,6 +1,6 @@
 <div [class.hidden]="!open" class="bg-white z-10 absolute bottom-0 top-0 left-0 right-0 md:hidden">
   <ul class="flex flex-col justify-center">
     <li *ngFor="let category of categories" class="capitalize p-3 w-full"><a
-      class="w-full" routerLink="category/{{category.name}}">{{category.name}}</a></li>
+      (click)="handleNavItemClick()" class="w-full" routerLink="category/{{category.name}}">{{category.name}}</a></li>
   </ul>
 </div>
