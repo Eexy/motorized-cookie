@@ -23,7 +23,7 @@ export class CategoryPageComponent implements OnInit {
   ngOnInit() {
     this.router.events.subscribe((val) => {
       if (val instanceof NavigationEnd) {
-        this.productService.getProductsByCategory(val.url.split("@")[1]).subscribe((products) => {
+        this.productService.getProductsByCategory(val.url.split("/")[2]).subscribe((products) => {
           this.products = products
         })
       }

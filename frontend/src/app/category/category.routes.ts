@@ -5,7 +5,7 @@ export const categoryRoutes: Routes = [
   {
     matcher: (url) => {
       if (url[0].path === "category") {
-        return {consumed: url, posParams: {category: new UrlSegment(url[1].path.slice(1), {})}}
+        return {consumed: url, posParams: {category: new UrlSegment(url[1].path, {})}}
       }
 
       return null;
