@@ -8,6 +8,7 @@ import { ClientsModule } from './clients/clients.module';
 import { AuthModule } from './auth/auth.module';
 import { JwtModule } from './jwt/jwt.module';
 import { CategoriesModule } from './categories/categories.module';
+import { MailModule } from './mail/mail.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { CategoriesModule } from './categories/categories.module';
     ClientsModule,
     AuthModule,
     CategoriesModule,
+    MailModule,
   ],
   controllers: [AppController],
   providers: [AppService],
