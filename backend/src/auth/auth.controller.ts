@@ -3,6 +3,7 @@ import { AuthService } from './auth.service';
 import { ZodValidationPipe } from '../common/pipes/zod-validation.pipe';
 import { SignupDto, signupDtoSchema } from './dto/signupDto';
 import { SigninDto, signinDtoSchema } from './dto/signin.dto';
+import { ApiBody, ApiResponse } from '@nestjs/swagger';
 
 @Controller('auth')
 export class AuthController {
@@ -10,6 +11,25 @@ export class AuthController {
 
   @Post('signup')
   @HttpCode(201)
+  @ApiResponse({
+    status: 201,
+    description:
+      'Client has been created and return access token valid for 15min',
+  })
+  @ApiBody({
+    required: true,
+    examples: {
+      signup: {
+        value: {
+          email: 'test@gmail.com',
+          password: 'password',
+          gender: 'M',
+          firstName: 'John',
+          lastName: 'Doe',
+        },
+      },
+    },
+  })
   async signup(
     @Body(new ZodValidationPipe(signupDtoSchema))
     signupDto: SignupDto,
@@ -19,6 +39,19 @@ export class AuthController {
   }
 
   @Post('signin')
+  @ApiResponse({ status: 200, description: 'Return access header' })
+  @ApiResponse({ status: 401, description: 'Invalid password or email' })
+  @ApiBody({
+    required: true,
+    examples: {
+      signin: {
+        value: {
+          email: 'test@gmail.com',
+          password: 'password',
+        },
+      },
+    },
+  })
   async signin(
     @Body(new ZodValidationPipe(signinDtoSchema)) signinDto: SigninDto,
   ) {
