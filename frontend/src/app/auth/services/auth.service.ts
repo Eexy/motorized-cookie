@@ -19,7 +19,7 @@ export class AuthService {
   }
 
   async signin(signinDto: SigninDto) {
-    return this.http.post<{ token: string }>('http://127.0.0.1:3000/auth/signup', signinDto).subscribe(res => {
+    return this.http.post<{ token: string }>('http://127.0.0.1:3000/auth/signin', signinDto).subscribe(res => {
       localStorage.setItem("token", res.token)
       this.router.navigate([""])
     })
