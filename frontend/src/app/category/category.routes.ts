@@ -1,5 +1,6 @@
 import {Routes, UrlSegment} from "@angular/router";
 import {CategoryPageComponent} from "./pages/category-page/category-page.component";
+import {categoryResolver} from "./resolvers/category.resolver";
 
 export const categoryRoutes: Routes = [
   {
@@ -10,6 +11,7 @@ export const categoryRoutes: Routes = [
 
       return null;
     },
-    component: CategoryPageComponent
+    component: CategoryPageComponent,
+    resolve: {products: categoryResolver}
   }
 ]
