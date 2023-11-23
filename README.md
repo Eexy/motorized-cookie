@@ -232,7 +232,7 @@ new release
 ### CORS
 
 If you look at the CORS on the backend you will see that we allow every origin this choice was made because it is just a
-demo project and I needed to iterate fastly. To add more security in prod or on real project, I would first of all
+demo project and I needed to iterate quickly. To add more security in prod or on real project, I would first of all
 detect
 with the env variable if I run on dev or prod mode, and I would set de origin according to it.
 Personally, I would use a function to load the origin either from env variable or from DB
