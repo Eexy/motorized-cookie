@@ -1,0 +1,13 @@
+<div class="flex justify-between items-center">
+  <div class="flex gap-4">
+    <div class="bg-gray-500 h-48 w-44"></div>
+    <div class="flex flex-col justify-between items-start flex-1">
+      <div class="flex flex-col gap-2">
+        <p class="font-semibold text-lg">{{product.name}}</p>
+        <p>{{product.description}}</p>
+      </div>
+      <button (click)="onClick()" class="text-red-500 p-0">Remove from cart</button>
+    </div>
+  </div>
+  <div class="text-xl font-semibold">{{product.price}}€</div>
+</div>
